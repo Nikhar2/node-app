@@ -9,6 +9,8 @@ pipeline {
         stage('Build Docker Image'){
             steps{
                 sh "docker build . -t ${IMAGE_URL_WITH_TAG}"
+		sh "docker ps -a"
+		sh "docker images"    
             }
         }
         stage('Nexus Push'){
